@@ -12,8 +12,8 @@ export class NavigationComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    private router: Router,
-    private flashMessage: FlashMessagesService
+    public router: Router,
+    public flashMessage: FlashMessagesService
   ) { }
 
   ngOnInit() {

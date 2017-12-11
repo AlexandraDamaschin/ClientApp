@@ -22,10 +22,10 @@ export class RegisterComponent implements OnInit {
   zip: String;
   // declare services needed
   constructor(
-    private validateService: ValidateService,
+    public validateService: ValidateService,
     public authService: AuthService,
-    private flashMessagesService: FlashMessagesService,
-    private router: Router
+    public flashMessagesService: FlashMessagesService,
+    public router: Router
   ) { }
   ngOnInit() {
   }

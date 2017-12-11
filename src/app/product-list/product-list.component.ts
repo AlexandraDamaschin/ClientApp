@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit {
   filteredProducts: IProduct[];
   errorMessage: string;
 
-  constructor(private _productService: ProductService, private _cartService: CartService) {
+  constructor(public _productService: ProductService, public _cartService: CartService) {
   }
 
   onNotify(message: string): void {

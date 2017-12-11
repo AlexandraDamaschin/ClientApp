@@ -11,9 +11,9 @@ import { IProduct } from '../product-list/product';
 })
 export class CartPgComponent implements OnInit {
   cart: Cart = new Cart();
-  private router: Router
+  public router: Router
 
-  constructor(private _cartService: CartService) {
+  constructor(public _cartService: CartService) {
     this.cart = this._cartService.cart;
    }
 

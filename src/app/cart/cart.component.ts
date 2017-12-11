@@ -13,9 +13,9 @@ import { CheckoutComponent } from '../checkout/checkout.component';
 
 export class CartComponent implements OnInit {
   cart: Cart = new Cart();
-  private router: Router
+  public router: Router
   
-  constructor(private cartService: CartService) {
+  constructor(public cartService: CartService) {
     this.cart = this.cartService.cart;
    }
 
