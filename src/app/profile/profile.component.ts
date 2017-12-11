@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
   user: Object;
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router
   ) { }
 

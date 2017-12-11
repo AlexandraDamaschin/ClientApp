@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   // declare services needed
   constructor(
     private validateService: ValidateService,
-    private authService: AuthService,
+    public authService: AuthService,
     private flashMessagesService: FlashMessagesService,
     private router: Router
   ) { }
