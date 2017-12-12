@@ -8,7 +8,7 @@ import 'rxjs/add/operator/do';
 
 @Injectable()
 export class ProductService {
-  private _productUrl = 'http://localhost:3055/products';
+  private _productUrl = 'https://immense-reef-59951.herokuapp.com/products';
 
   constructor(private _http: HttpClient) { }
 
