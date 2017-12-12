@@ -73,7 +73,7 @@ export class AuthService {
     if (this.isDev) {
       return ep;
     } else {
-      return 'https://serene-depths-78539.herokuapp.com/' + ep;
+      return 'http://localhost:3055/' + ep;
     }
   }
 
