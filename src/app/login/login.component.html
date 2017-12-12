@@ -8,23 +8,31 @@
         <label>Password</label>
         <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password">
     </div>
-
+    <!-- 
     <div class="form-check inline">
         <label class="form-check-label">
             <input type="checkbox" class="form-check-input"> Remember me
         </label>
-    </div>
-    <button type="submit" class="btn btn-primary signIn" value="signIn">Sign in</button>
+    </div> -->
 
+    <button type="submit" class="btn btn-info btn-sm signIn" value="signIn">
+        <span class="glyphicon glyphicon-log-in"></span>
+        Sign in
+    </button>
     <div class="bottom text-center">
+
         <h5>New here?
             <a [routerLink]="['/register']">
                 <b>Register</b>
             </a>
         </h5>
     </div>
+
+
     <!-- Login End-->
-    <li  *ngIf="authService.loggedIn()" > 
-        <a (click)="onLogoutClick()" href="#">Logout</a>
+    <li *ngIf="authService.loggedIn()">
+        <a href="" class="btn btn-info btn-lg" (click)="onLogoutClick()">
+            <span class="glyphicon glyphicon-log-out"></span> Log out
+        </a>
     </li>
 </form>

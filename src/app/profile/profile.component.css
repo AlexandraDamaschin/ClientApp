@@ -1,17 +1,8 @@
 .list-group-right{
-    margin-left: 170px;
-    border-left: 1px solid gray;
+    margin-left: 17px;
     padding: 1em;
     overflow: hidden;
 }
-
-.image{
-    float: left;
-    max-width: 160px;
-    margin: 0;
-    padding: 1em;
-}
-
 .page-header{
     padding: 1em;
     color: white;
