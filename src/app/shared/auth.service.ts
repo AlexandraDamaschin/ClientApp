@@ -34,7 +34,6 @@ export class AuthService {
     let ep = this.prepEndpoint('users/authenticate');
     return this.http.post(ep, user, { headers: headers })
       .map(res => res.json());
-
   }
 
   getProfile() {
