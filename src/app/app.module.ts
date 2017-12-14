@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CartPgComponent } from './cart-pg/cart-pg.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { FooterComponent } from './footer/footer.component';
 
 // adding routes
 const routes: Routes = [
@@ -47,7 +48,8 @@ const routes: Routes = [
     HomeComponent,
     NavigationComponent,
     CartPgComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
