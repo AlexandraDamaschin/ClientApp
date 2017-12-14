@@ -19,13 +19,14 @@ export class AuthService {
   //subscribe to observable
   registerUser(user) {
     //  console.log("register user" + user);
-    let headers = new Headers();
+    let headers = new Headers(); 
     headers.append('Content-Type', 'application/json');
     let ep = this.prepEndpoint('users/register');
     return this.http.post(ep, user, { headers: headers })
       .map(res => res.json());
   }
 
+  //auth a user
   authUser(user) {
     // console.log("auth user" + user);
     // console.log("auth data" + user.data);
@@ -36,6 +37,7 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  //get profile of a user (if is authorizated)
   getProfile() {
     let headers = new Headers();
     this.loadToken();
@@ -46,6 +48,7 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  //store data of users as JSON
   storeUserData(token, user) {
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));
@@ -53,21 +56,25 @@ export class AuthService {
     this.user = user;
   }
 
+  //store token
   loadToken() {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
   }
 
+  //store token for keep user loggin for certain amount of time
   loggedIn() {
     return tokenNotExpired('id_token');
   }
 
+  //clear local storage -> logout
   logout() {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
   }
 
+  //endpoint of server part
   prepEndpoint(ep) {
     if (this.isDev) {
       return ep;

@@ -30,7 +30,7 @@ import { FooterComponent } from './footer/footer.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent, canActivate:[AuthGuardService] }, 
+  { path: 'profile', component: ProfileComponent, canActivate:[AuthGuardService] }, //just people loggedIn can have acces to this
   { path: 'products', component: ProductListComponent },
   { path: 'cart', component: CartPgComponent },
   { path: 'cart-pg', component: CartPgComponent },

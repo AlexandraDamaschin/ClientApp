@@ -1,9 +1,10 @@
 <div class="user" *ngIf="user">
+  <img class="img-responsive" src='src/assets/images/logo.PNG' alt="logo" />
   <h2 class="page-header">{{user.username}}</h2>
   <ul class="list-group-right">
-     <h3>Your personal information: </h3>
+    <h3>Your personal information: </h3>
     <li class="list-group-item">Email: {{user.email}}</li>
-    <h3> Your shops will be delivered to this address: </h3> 
+    <h3> Your shops will be delivered to this address: </h3>
     <li class="list-group-item">Address: {{user.address}}</li>
     <li class="list-group-item">City: {{user.city}}</li>
     <li class="list-group-item">Country: {{user.country}}</li>

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   //component properties for login
   email: String;
   password: String;
-
+ // declare services needed- if they are not public they can not be used with Heroku
   constructor(
     public authService: AuthService,
     public router: Router,
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       email: this.email,
       password: this.password,
     }
-
+      
     this.authService.authUser(user).subscribe(data => {
       //  console.log("authService/authUser" + data);
       if (data.success) {
