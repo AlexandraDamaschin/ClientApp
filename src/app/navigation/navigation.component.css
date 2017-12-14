@@ -6,3 +6,9 @@
     width: 100%;
     z-index: 999;
 }
+.brand{
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+}
