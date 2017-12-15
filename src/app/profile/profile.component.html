@@ -1,13 +1,39 @@
 <div class="user" *ngIf="user">
-  <img class="img-responsive" src='src/assets/images/logo.PNG' alt="logo" />
-  <h2 class="page-header">{{user.username}}</h2>
-  <ul class="list-group-right">
-    <h3>Your personal information: </h3>
-    <li class="list-group-item">Email: {{user.email}}</li>
-    <h3> Your shops will be delivered to this address: </h3>
-    <li class="list-group-item">Address: {{user.address}}</li>
-    <li class="list-group-item">City: {{user.city}}</li>
-    <li class="list-group-item">Country: {{user.country}}</li>
-    <li class="list-group-item">Zip code: {{user.zip}}</li>
-  </ul>
+  <div class="image">
+    <img class="brand" src='../assets/images/profileLogo.png' alt="logo">
+  </div>
+  
+<table class="container">
+  <thead>
+    <tr>
+      <th>
+        <h1>{{user.username}}</h1>
+      </th>
+      <th>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Email</td>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>{{user.address}}</td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td>{{user.city}}</td>
+    </tr>
+    <tr>
+      <td>Country</td>
+      <td>{{user.country}}</td>
+    </tr>
+    <tr>
+    <td>Zip code</td>
+    <td>{{user.zip}}</td>
+    </tr>
+  </tbody>
+</table>
 </div>
