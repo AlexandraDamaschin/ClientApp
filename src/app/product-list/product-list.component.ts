@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit {
   filteredProducts: IProduct[];
   errorMessage: string;
 
-  constructor(public _productService: ProductService, public _cartService: CartService) {
+  constructor(private _productService: ProductService, private _cartService: CartService) {
   }
 
   onNotify(message: string): void {
@@ -33,7 +33,6 @@ export class ProductListComponent implements OnInit {
     this._cartService.addProduct(product);
   }
   //#endregion
-
   //#region Search
   _search: string;
 
@@ -51,7 +50,6 @@ export class ProductListComponent implements OnInit {
     return this.products.filter((product: IProduct) => product.name.toLocaleLowerCase().indexOf(searchBy) != -1);
   }
   //#endregion
-
   //#region Sort
   performSort(sortBy: string) {
     if (sortBy == 'Popularity')
@@ -60,37 +58,22 @@ export class ProductListComponent implements OnInit {
       this.filteredProducts = this.filteredProducts.sort(this.sortByPriceLow)
     else if (sortBy == 'Price - High to Low')
       this.filteredProducts = this.filteredProducts.sort(this.sortByPriceHigh)
-    else if (sortBy == 'Rating')
-      this.filteredProducts = this.filteredProducts.sort(this.sortByRating)
   }
 
   sortByPopularity(p1: IProduct, p2: IProduct) {
-    if (p1.stock > p2.stock) return 1
-    else if (p1.price < p2.price) return 0
-    else return -1
+    return p1.stock - p2.stock;
   }
 
   sortByPriceLow(p1: IProduct, p2: IProduct) {
-    if (p1.price > p2.price) return 1
-    else if (p1.price < p2.price) return 0
-    else return -1
+    return p1.price - p2.price;
   }
 
   sortByPriceHigh(p1: IProduct, p2: IProduct) {
-    if (p1.price < p2.price) return 1
-    else if (p1.price > p2.price) return 0
-    else return -1
-  }
-
-  sortByRating(p1: IProduct, p2: IProduct) {
-    if (p1.reviews > p2.reviews) return 1
-    else if (p1.price < p2.price) return 0
-    else return -1
+    return p2.price - p1.price;
   }
   //#endregion  
-
   //#region Category
-    // Mens
+  // Mens
   _mens: boolean = false;
   get mens(): boolean {
     return this._mens;
@@ -112,36 +95,25 @@ export class ProductListComponent implements OnInit {
     this.refine();
   }
 
-  // Kids
-  _kids: boolean = false;
-  get kids(): boolean {
-    return this._kids;
+  // Jackets
+  _jackets: boolean = false;
+  get jackets(): boolean {
+    return this._jackets;
   }
 
-  set kids(value: boolean) {
-    this._kids = value;
+  set jackets(value: boolean) {
+    this._jackets = value;
     this.refine();
   }
 
-  // Jumper
-  _jumpers: boolean = false;
-  get jumpers(): boolean {
-    return this._jumpers;
+  // Jeans
+  _jeans: boolean = false;
+  get jeans(): boolean {
+    return this._jeans;
   }
 
-  set jumpers(value: boolean) {
-    this._jumpers = value;
-    this.refine();
-  }
-
-  // Kids
-  _skirts: boolean = false;
-  get skirts(): boolean {
-    return this._skirts;
-  }
-
-  set skirts(value: boolean) {
-    this._skirts = value;
+  set jeans(value: boolean) {
+    this._jeans = value;
     this.refine();
   }
 
@@ -154,17 +126,17 @@ export class ProductListComponent implements OnInit {
       else if (this._womens == true && product.department == "womens") {
         this.filteredProducts.push(product);
       }
-      else if (this._kids == true && product.department == "kids") {
+      else if (this._jackets == true && product.category == "jackets") {
         this.filteredProducts.push(product);
       }
-      else if (this._jumpers == true && product.category == "jumper") {
+      else if (this._jeans == true && product.category == "jeans") {
         this.filteredProducts.push(product);
       }
-      else if (this._skirts == true && product.category == "skirt") {
-        this.filteredProducts.push(product);
-      }
-      else if (this.filteredProducts == []) {
-        this.filteredProducts == this.products;
+      else if (this._mens == false
+        && this._womens == false
+        && this._jackets == false
+        && this._jeans == false) {
+        this.filteredProducts = this.products;
       }
     });
   }

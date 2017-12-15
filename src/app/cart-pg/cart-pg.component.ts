@@ -1,31 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { Cart, CartService } from '../shared/cart.service';
-import { Router } from '@angular/router';
-import { ProductService } from '../shared/product.service';
+// import { CartPgComponent } from '../cart-pg/cart-pg.component';
+import { CartPgComponent } from '../cart/cart.component';
 import { IProduct } from '../product-list/product';
+import { Component, OnInit, Input } from '@angular/core';
+import { Cart, CartService } from '../shared/cart.service';
+import { RouterModule, Routes, Router } from '@angular/router';
+import { CheckoutComponent } from '../checkout/checkout.component';
 
 @Component({
   selector: 'app-cart-pg',
   templateUrl: './cart-pg.component.html',
   styleUrls: ['./cart-pg.component.css']
 })
-export class CartPgComponent implements OnInit {
-  cart: Cart = new Cart();
-  public router: Router
 
-  constructor(public _cartService: CartService) {
+export class CartComponent implements OnInit {
+  cart: Cart = new Cart();
+  private router: Router
+  
+  constructor(private _cartService: CartService) {
     this.cart = this._cartService.cart;
    }
 
   ngOnInit() {
   }
 
-  removeProduct(product: IProduct) {
-    this._cartService.removeProduct(product);
+  removeItem(product: IProduct) {
+    this._cartService.removeItem(product);
   }
-
-  addProduct(product: IProduct) {
-    this._cartService.addProduct(product);
-  }
-
 }

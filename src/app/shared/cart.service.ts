@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { IProduct } from '../product-list/product';
 
-export interface CartItem {
+export interface CartItem { // Item in Cart
     product: IProduct;
     count: number;
     totalCost: number;
 }
 
-export class Cart {
+export class Cart { // Cart
     count: number = 0;
     totalCost: number = 0;
     items: CartItem[] = [];
@@ -20,7 +20,6 @@ export class CartService {
     // This methid adds the new product
     // or increases the number of same products in the cart.
     // Also updates the totalCost and count of items in the cart.
-
     public addProduct(product: IProduct): CartItem {
         // Find CartItem in items
         let item: CartItem = this.findItem(product);
@@ -75,9 +74,8 @@ export class CartService {
         return item;
     }
 
-    // Remove Item from Cart
-    // Update the totalCost and count of items in cart
-    removeItem(item: CartItem) {
+    removeItem(product: IProduct) {
+        let item: CartItem = this.findItem(product);
         // Delete item from items
         this.remove(item);
         // Decrease count in cart
@@ -89,7 +87,7 @@ export class CartService {
     // Returns cart item by product _id
     findItem(product: IProduct): CartItem {
         for (let i = 0; i < this.cart.items.length; i++) {
-            if (this.cart.items[i].product === product) {
+            if (this.cart.items[i].product._id === product._id) {
                 return this.cart.items[i];
             }
         }

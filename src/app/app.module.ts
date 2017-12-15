@@ -16,13 +16,13 @@ import { CartService } from './shared/cart.service';
 //components 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { CartComponent } from './cart/cart.component';
+import { CartPgComponent } from './cart/cart.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { CartPgComponent } from './cart-pg/cart-pg.component';
+import { CartComponent } from './cart-pg/cart-pg.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FooterComponent } from './footer/footer.component';
 

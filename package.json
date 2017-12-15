@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "@types/stripe": "^4.9.0",
     "angular2-flash-messages": "^1.0.8",
     "angular2-jwt": "^0.2.3",
     "bootstrap": "^3.3.7",
