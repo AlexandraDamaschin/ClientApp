@@ -19,10 +19,10 @@ export class AuthService {
   //subscribe to observable
   registerUser(user) {
     //  console.log("register user" + user);
-    let headers = new Headers(); 
-    headers.append('Content-Type', 'application/json');
+    let headers = new Headers();  //new headers
+    headers.append('Content-Type', 'application/json'); 
     let ep = this.prepEndpoint('users/register');
-    return this.http.post(ep, user, { headers: headers })
+    return this.http.post(ep, user, { headers: headers }) //post method 
       .map(res => res.json());
   }
 
@@ -30,21 +30,21 @@ export class AuthService {
   authUser(user) {
     // console.log("auth user" + user);
     // console.log("auth data" + user.data);
-    let headers = new Headers();
+    let headers = new Headers(); //create new  headers
     headers.append('Content-Type', 'application/json');
     let ep = this.prepEndpoint('users/authenticate');
-    return this.http.post(ep, user, { headers: headers })
+    return this.http.post(ep, user, { headers: headers }) //post method
       .map(res => res.json());
   }
 
   //get profile of a user (if is authorizated)
   getProfile() {
     let headers = new Headers();
-    this.loadToken();
+    this.loadToken(); // stored token in local storage 
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
     let ep = this.prepEndpoint('users/profile');
-    return this.http.get(ep, { headers: headers })
+    return this.http.get(ep, { headers: headers }) //get method because we want to take data from db 
       .map(res => res.json());
   }
 

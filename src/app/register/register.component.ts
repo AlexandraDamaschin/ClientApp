@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
       }
       else {
         this.flashMessagesService.show('Something went wrong! Plase try again!', { cssClass: 'alert-danger', timeout: 4000 });
-        this.router.navigate(['']);
+        this.router.navigate(['/register']);
       }
     });
   }
