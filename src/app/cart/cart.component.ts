@@ -13,7 +13,6 @@ import { IProduct } from '../product-list/product';
 
 export class CartPgComponent implements OnInit {
   cart: Cart = new Cart();
-  private router: Router;
 
   name: String;
   address: String;
@@ -23,7 +22,9 @@ export class CartPgComponent implements OnInit {
   expirationYear: String;
   cvc: String;
 
-  constructor(private _cartService: CartService) {
+  constructor(
+    public _cartService: CartService,
+    public router: Router) {
     this.cart = this._cartService.cart;
   }
 

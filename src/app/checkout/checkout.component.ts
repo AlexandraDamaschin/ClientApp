@@ -13,7 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class CheckoutComponent implements OnInit {
   cart: Cart = new Cart();
-  private router: Router;
 
   name: String;
   address: String;
@@ -22,7 +21,9 @@ export class CheckoutComponent implements OnInit {
   expiry: String;
   cvc: String;
 
-  constructor(private _cartService: CartService) {
+  constructor(
+    public _cartService: CartService,
+    public router: Router) {
     this.cart = this._cartService.cart;
    }
 

@@ -14,11 +14,13 @@ import { CheckoutComponent } from '../checkout/checkout.component';
 
 export class CartComponent implements OnInit {
   cart: Cart = new Cart();
-  private router: Router
-  
-  constructor(private _cartService: CartService) {
+
+
+  constructor(
+    public _cartService: CartService,
+    public router: Router) {
     this.cart = this._cartService.cart;
-   }
+  }
 
   ngOnInit() {
   }
